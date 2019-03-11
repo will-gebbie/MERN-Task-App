@@ -8,10 +8,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      data: [],
-      id: 0,
-      title: null,
-      isDone: false,
+      tasks: [],
       intervalIsSet: false
 
     };
@@ -21,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     this.getDataFromDb();
     if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 1000);
+      let interval = setInterval(this.getDataFromDb, 5000);
       this.setState({ intervalIsSet: interval });
     }
   }
@@ -33,18 +30,27 @@ class App extends Component {
     }
   }
 
-  getDataFromDb = function(){
-    fetch("http://localhost:3001/api/getData")
-    .then(function(data){
-      return data.json();
-    })
-    .then(function(res){
-      return this.setState({data : res.data})
-    })
+  getDataFromDb = () => {
+    axios.get("http://127.0.0.1:3001/api/getData")
+      .then(res => {
+        this.setState({tasks: res.data})
+      });
   };
   
   render() {
-    return <h1>{this.state.data}</h1>
+
+    return(
+      <div>
+        {
+          this.state.tasks.map(task => 
+              <tr>
+                <td>Title: </td>
+                <td>{task.title}</td>
+              </tr>
+            )
+        }
+      </div>
+    );
   }
 }
 

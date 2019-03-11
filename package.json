@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\""
+    "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\"",
+    "server": "cd backend && node server.js",
+    "client": "cd client && npm start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Will Gebbie <will@gebbie.nu>",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^4.1.0"

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 const mongojs = require('mongojs');
 const bodyParser = require("body-parser");
@@ -6,16 +7,19 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3001;
 
-const db = mongojs('mongodb://localhost:27017/tasks');
+const db = mongojs('mongodb://127.0.0.1:27017/tasks');
 
 //Body Parser MiddleWare
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+//Cors Enable
+app.use(cors());
+
 //ROUTING START
 
 // Get All Tasks
-router.get('/getData', function(req, res, next){
+router.get('/getData', cors(), function(req, res, next){
     db.tasks.find(function(err, tasks){
         if(err){
             res.send(err);
