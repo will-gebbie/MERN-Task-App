@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Cors Enable
 app.use(cors());
 
+app.use(express.static("../client/public"))
+
 //ROUTING START
 
 // Get All Tasks

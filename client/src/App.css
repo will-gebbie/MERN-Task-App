@@ -1,0 +1,8 @@
+body {
+    background-color: lightblue;
+    background-size: cover;
+}
+
+.nav-pills .nav-link.active {
+    background-color: beige;
+}
