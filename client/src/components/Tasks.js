@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
-import './Tasklist.css'
 
-class Tasklist extends Component {
+class Tasks extends Component {
   
   constructor(props){
 
@@ -44,19 +43,18 @@ class Tasklist extends Component {
   render() {
     const {tasks} = this.state;
     return(
-      <div className="wfont">
+      <div>
         <h1>Tasks</h1>
         {
           tasks.map(task => 
               <ul>
-                <Button>{task.title}</Button>
+                <Button variant="primary">{task.title}</Button>
               </ul>
             )
         }
-        
       </div>
     );
   }
 }
 
-export default Tasklist;
+export default Tasks;

@@ -3,27 +3,27 @@
   
 */
 import React, { Component } from 'react';
-import {Nav, NavDropdown, Navbar} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 class Header extends Component {
   render(){
     return(
-        <Navbar bg="light" expand="xl">
-          <Navbar.Brand href="#home">Daily Grind</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#tasks">Tasks</Nav.Link>
-              <NavDropdown title="Workouts" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Legs</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Chest n Bis</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Shoulders n Tris</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">Back</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="/">Daily-Grind</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/tasks">Tasks</Nav.Link>
+            <Nav.Link href="/budget">Budget</Nav.Link>
+            <NavDropdown title="Fitness" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/workouts">Workouts</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/notes">Notes</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     )
   }
 }

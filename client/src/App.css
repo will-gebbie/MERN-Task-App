@@ -1,8 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: cornflowerblue;
     background-size: cover;
-}
-
-.nav-pills .nav-link.active {
-    background-color: beige;
+    color: whitesmoke;
 }
