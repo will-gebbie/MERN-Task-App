@@ -1,9 +1,18 @@
+/*
+  Component Description: WORK IN PROGRESS
+  Future Update: Map out expenses for each month. Show net profit, income
+*/
+
 import React, { Component } from "react";
  
 class Budget extends Component {
   render() {
     return (
-      <h1>Budget</h1>
+      <div>
+        <h1>Budget</h1>
+        <br />
+        <h2>WORK IN PROGRESS</h2>
+      </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 /*
-  Component Description:
-  
+  Component Description: Navigation Bar for navigation through websit
+  Future updates: might switch to dashboard design instead
 */
 import React, { Component } from 'react';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';

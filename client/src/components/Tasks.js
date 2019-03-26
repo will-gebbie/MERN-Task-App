@@ -1,57 +1,84 @@
+/*
+  Component Description: Shows a table of tasks with a create task button on top. Retrieves data from Database and displays it.
+  Future update: update design with material ui
+*/
+
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import TableRow from './TableRow';
 
 class Tasks extends Component {
-  
+
   constructor(props){
 
     super(props);
 
     this.state = {
-      tasks: [],
-      intervalIsSet: false
-
+      tasks: []
     };
 
   }
   
   componentDidMount() {
-    this.getDataFromDb();
-    if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 5000);
-      this.setState({ intervalIsSet: interval });
-    }
+      //updates every tenth of a second
+      this.interval = setInterval(() => {
+        axios.get("http://127.0.0.1:3001/api/tasks").then(res => {
+            this.setState({tasks: res.data});
+          }).catch(err => {
+            console.log(err);
+          });
+      }, 100);
+
   }
 
-  componentWillUnmount() {
-    if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
+  componentWillUnmount(){
+    clearInterval(this.interval);
   }
 
-  getDataFromDb = () => {
-    axios.get("http://127.0.0.1:3001/api/getData")
-      .then(res => {
-        this.setState({tasks: res.data})
-      });
-  };
+  tableRow() {
+    return this.state.tasks.map((task, i) => {
+      return(
+        <TableRow obj={task} key={i}/>
+      );
+    });
 
-  
-  
+
+  }
+
   render() {
-    const {tasks} = this.state;
+    const headStyle = {
+      font : "bold",
+      fontSize : "20px"
+    };
+    const createStyle = {
+      display : 'flex',
+      justifyContent : 'center',
+      alignItems : 'center',
+      fontSize : "25px",
+      font : "bold"
+    }
     return(
       <div>
-        <h1>Tasks</h1>
-        {
-          tasks.map(task => 
-              <ul>
-                <Button variant="primary">{task.title}</Button>
-              </ul>
-            )
-        }
+        <br />
+        <Link to={"tasks/create"} className="btn btn-info" style={createStyle}>Create a Task</Link>
+        <br />
+        <br />
+        <Table>
+          <thead style = {headStyle} >
+            <tr>
+              <th>Task</th>
+              <th>Priority</th>
+              <th>Due Date</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.tableRow()}
+          </tbody>
+        </Table>
       </div>
     );
   }

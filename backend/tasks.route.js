@@ -38,9 +38,10 @@ taskRouter.route('/update/:id').post((req, res) => {
             res.status(404).send("data is not found");
         }
         else{
-            //Assign new title and/or difficulty
+            //Assign new title, difficulty, due_date
             task.title = req.body.title;
-            task.difficulty = req.body.difficulty;
+            task.priority = req.body.priority;
+            task.due_date = req.body.due_date;
 
             //save the newly updated task
             task.save().then(task => {
@@ -54,7 +55,7 @@ taskRouter.route('/update/:id').post((req, res) => {
 
 //Route for deleting tasks
 taskRouter.route('/delete/:id').get((req, res) => {
-    Task.findByIdAndRemove(req.params.id, (err, task) => {
+    Task.findByIdAndDelete({_id : req.params.id}, (err) => {
         if(err){res.json(err);}
         else{res.json('Successfully removed');}
     });

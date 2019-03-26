@@ -23,6 +23,7 @@ app.use(cors());
 
 
 // append /api for http requests
+// use collection of tasks for taskRouter
 app.use("/api/tasks", taskRouter);
 
 // launch backend into a port
