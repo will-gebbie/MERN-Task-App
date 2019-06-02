@@ -1,15 +1,6 @@
 # MERN-Task-App
 Task application using the MERN stack. MongoDB, Express, ReactJs, and Node.js
 
-## Future Updates:
-
-Some tabs have not yet completed such as the budget and workouts on the navigation bar.
-
-This app will take on a dashboard type gui instead of using a navbar.
-
-I am interested in using [Material UI](https://material-ui.com/) for design improvement due to its
-sleek appearance. 
-
 ## Installation:
 
 ### What you will need
