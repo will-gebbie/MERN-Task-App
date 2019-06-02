@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import TableRow from './TableRow';
+import { Container } from 'react-bootstrap';
 
 class Tasks extends Component {
 
@@ -60,7 +61,7 @@ class Tasks extends Component {
       font : "bold"
     }
     return(
-      <div>
+      <Container>
         <br />
         <Link to={"tasks/create"} className="btn btn-info" style={createStyle}>Create a Task</Link>
         <br />
@@ -79,7 +80,7 @@ class Tasks extends Component {
             {this.tableRow()}
           </tbody>
         </Table>
-      </div>
+      </Container>
     );
   }
 }
