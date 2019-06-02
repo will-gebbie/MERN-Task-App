@@ -6,6 +6,7 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Container } from 'react-bootstrap';
 import axios from "axios";
  
 class AddTask extends Component {
@@ -67,7 +68,8 @@ class AddTask extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
+        <br />
         <h2>Create a New Task!</h2>
         <Form onSubmit={this.onSubmit}>
           <Form.Group controlId="formBasicText">
@@ -99,7 +101,7 @@ class AddTask extends Component {
             Submit
           </Button>
         </Form>
-      </div>
+      </Container>
     );
   }
 }
