@@ -3,7 +3,7 @@
   Future updates: might switch to dashboard design instead
 */
 import React, { Component } from 'react';
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 
 class Header extends Component {
   render(){
